@@ -40,9 +40,9 @@ export default function Home() {
                 <th scope="row" key={index}>
                   {index + 1}
                 </th>
-                <td>{user.name}</td>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
+                <td>Lala</td>
+                <td>user</td>
+                <td>email</td>
                 <td>
                   <Link
                     className="btn btn-primary mx-2"

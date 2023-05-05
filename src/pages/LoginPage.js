@@ -63,7 +63,8 @@ const Login = () => {
 
   return (
     <>
-      <section>
+      <section  style={{
+        backgroundColor: 'darkturquoise'}}>
         <p
           ref={errRef}
           className={errMsg ? "errmsg" : "offscreen"}
@@ -72,7 +73,7 @@ const Login = () => {
           {errMsg}
         </p>
         <h1>Login</h1>
-        <form>
+        <form> 
           <label htmlFor="email">Email:</label>
           <input
             type="text"

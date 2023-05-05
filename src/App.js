@@ -1,10 +1,7 @@
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./layout/Navbar";
-import Home from "./pages/Register";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AddUser from "./components/users/AddUser";
-import EditUser from "./components/users/EditUser";
-import ViewUser from "./components/users/ViewUser";
+import AddDoctor from "./components/doctors/AddDoctor";
+import EditDoctor from "./components/doctors/EditDoctor";
 import RegisterPage from "./pages/RegisterPage";
 import DonorPage from "./pages/DonorPage";
 import DoctorPage from "./pages/DoctorPage";
@@ -21,6 +18,8 @@ function App() {
           <Route exact path="/donor" element={<DonorPage />} />
           <Route exact path="/doctor" element={<DoctorPage />} />
           <Route exact path="/admin" element={<AdminPage />} />
+          <Route exact path="/addDoctor" element={<AddDoctor />} />
+          <Route exact path="/editDoctor" element={<EditDoctor />} />
         </Routes>
       </Router>
     </div>

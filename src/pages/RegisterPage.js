@@ -102,7 +102,8 @@ const Register = () => {
 
   return (
     <>
-      <section>
+      <section style={{
+        backgroundColor: 'lightseagreen'}}>
         <p
           ref={errRef}
           className={errMsg ? "errmsg" : "offscreen"}
@@ -205,14 +206,14 @@ const Register = () => {
             aria-expanded="true"
             onSelect={handleBloodType}
           >
-            <Dropdown.Item eventKey="0+">0+</Dropdown.Item>
-            <Dropdown.Item eventKey="0-">0-</Dropdown.Item>
-            <Dropdown.Item eventKey="A+">A+</Dropdown.Item>
-            <Dropdown.Item eventKey="A-">A-</Dropdown.Item>
-            <Dropdown.Item eventKey="B+">B+</Dropdown.Item>
-            <Dropdown.Item eventKey="B-">B-</Dropdown.Item>
-            <Dropdown.Item eventKey="AB+">AB+</Dropdown.Item>
-            <Dropdown.Item eventKey="AB-">AB-</Dropdown.Item>
+            <Dropdown.Item style={{color: "black",}} eventKey="0+">0+</Dropdown.Item>
+            <Dropdown.Item  style={{color: "black",}} eventKey="0-">0-</Dropdown.Item>
+            <Dropdown.Item  style={{color: "black",}} eventKey="A+">A+</Dropdown.Item>
+            <Dropdown.Item  style={{color: "black",}} eventKey="A-">A-</Dropdown.Item>
+            <Dropdown.Item  style={{color: "black",}} eventKey="B+">B+</Dropdown.Item>
+            <Dropdown.Item  style={{color: "black",}} eventKey="B-">B-</Dropdown.Item>
+            <Dropdown.Item  style={{color: "black",}} eventKey="AB+">AB+</Dropdown.Item>
+            <Dropdown.Item  style={{color: "black",}} eventKey="AB-">AB-</Dropdown.Item>
           </DropdownButton>
 
           <input

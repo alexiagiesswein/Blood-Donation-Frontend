@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 export default function AdminPage() {
@@ -65,7 +65,7 @@ export default function AdminPage() {
                 <td>
                   <Link
                     className="btn btn-primary mx-2"
-                    to={`/editDoctor`}
+                    to={`/editDoctor/${doctor.doctor.id}/${doctor.user.email}/${doctor.user.password}/${doctor.user.name}/${doctor.doctor.locationId}/${doctor.doctor.shiftStart}/${doctor.doctor.shiftEnd}`}
                   >
                     Edit
                   </Link>

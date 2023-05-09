@@ -33,12 +33,13 @@ const Login = () => {
         .then((res) => res.json())
         .then((data) => {
           const role = data.role;
+          const user_id=data.id;
           if (role === "admin") {
             navigate("/admin");
           } else if (role === "doctor") {
             navigate("/doctor");
           } else if (role === "donor") {
-            navigate("/donor");
+            navigate(`/donor/${user_id}`);
           } else {
             throw new Error("Invalid login!");
           }

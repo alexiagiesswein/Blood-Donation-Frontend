@@ -1,28 +1,26 @@
 import React, {useState} from "react";
-import { Link, useNavigate,useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-
-export default function EditDoctor() {
+export default function EditDonor() {
 
     let navigate = useNavigate();
-    const { id,email,password,name,locationId,shiftStart,shiftEnd } = useParams();
+    const { id,password,name,address, bloodType,userId } = useParams();
 
-  const [doctor, setDoctor] = useState({
+  const [donor, setDonor] = useState({
     id: id,
-    email: email,
     password: password,
     name: name,
-    locationId: locationId,
-    shiftStart: shiftStart,
-    shiftEnd: shiftEnd
+    address: address,
+    bloodType: bloodType,
+    userId: userId,
 
   });
 
 
   const onInputChange = (e) => {
     const { name, value } = e.target;
-    setDoctor((prevDoctor) => ({
-      ...prevDoctor,
+    setDonor((prevDonor) => ({
+      ...prevDonor,
       [name]: value,
     }));
   };
@@ -30,7 +28,7 @@ export default function EditDoctor() {
   const onSubmit = (e) => {
     e.preventDefault();
     fetch(
-      `http://localhost:8080/doctor/edit?email=${doctor.email}&password=${doctor.password}&name=${doctor.name}&locationId=${doctor.locationId}&shiftStart=${doctor.shiftStart}&shiftEnd=${doctor.shiftEnd}&id=${id}`,
+      `http://localhost:8080/donor/edit?donorId=${donor.id}&password=${donor.password}&name=${donor.name}&address=${donor.address}&bloodType=${donor.bloodType}`,
       {
         method: "PUT",
         headers: {
@@ -40,16 +38,16 @@ export default function EditDoctor() {
     )
       .then((res) => res.json())
       .then((data) => {
-        setDoctor(data);
-        navigate("/admin");
+        setDonor(data);
+        navigate(`/donor/${userId}`);
       });
   };
-  
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Edit Doctor</h2>
+          <h2 className="text-center m-4">Edit your account</h2>
 
           <div className="mb-3">
               <label htmlFor="ID" className="form-label">
@@ -66,19 +64,6 @@ export default function EditDoctor() {
             </div>
 
           <form onSubmit={(e) => onSubmit(e)}>
-            <div className="mb-3">
-              <label htmlFor="Email" className="form-label">
-                E-mail
-              </label>
-              <input
-                type={"text"}
-                className="form-control"
-                placeholder="Enter e-mail address"
-                name="email"
-                value={doctor.email}
-                onChange={(e) => onInputChange(e)}
-              />
-            </div>
 
             <div className="mb-3">
               <label htmlFor="Password" className="form-label">
@@ -89,7 +74,7 @@ export default function EditDoctor() {
                 className="form-control"
                 placeholder="Enter password"
                 name="password"
-                value={doctor.password}
+                value={donor.password}
                 onChange={(e) => onInputChange(e)}
               />
             </div>
@@ -103,49 +88,35 @@ export default function EditDoctor() {
                 className="form-control"
                 placeholder="Enter name"
                 name="name"
-                value={doctor.name}
+                value={donor.name}
                 onChange={(e) => onInputChange(e)}
               />
             </div>
 
             <div className="mb-3">
-              <label htmlFor="Location ID" className="form-label">
-                Location ID
+              <label htmlFor="Address" className="form-label">
+                Address
               </label>
               <input
                 type={"text"}
                 className="form-control"
-                placeholder="Enter location id"
-                name="locationId"
-                value={doctor.locationId}
+                placeholder="Enter address"
+                name="address"
+                value={donor.address}
                 onChange={(e) => onInputChange(e)}
               />
             </div>
 
             <div className="mb-3">
-              <label htmlFor="Shift Start" className="form-label">
-                Shift Start
+              <label htmlFor="Blood Type" className="form-label">
+                Blood Type
               </label>
               <input
                 type={"text"}
                 className="form-control"
-                placeholder="Enter shift start"
-                name="shiftStart"
-                value={doctor.shiftStart}
-                onChange={(e) => onInputChange(e)}
-              />
-            </div>
-
-            <div className="mb-3">
-              <label htmlFor="Shift End" className="form-label">
-                Shift End
-              </label>
-              <input
-                type={"text"}
-                className="form-control"
-                placeholder="Enter shift end"
-                name="shiftEnd"
-                value={doctor.shiftEnd}
+                placeholder="Enter blood type"
+                name="bloodType"
+                value={donor.bloodType}
                 onChange={(e) => onInputChange(e)}
               />
             </div>
@@ -159,7 +130,7 @@ export default function EditDoctor() {
                 color: "darkred",
               }}
               className="btn btn-outline-danger "
-              to="/admin"
+              to={`/donor/${userId}`}
             >
               Cancel
             </Link>

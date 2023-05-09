@@ -60,8 +60,8 @@ export default function AdminPage() {
                 <td>{doctor.user.name}</td>
                 <td>{doctor.doctor.locationId}</td>
                 <td>{doctor.doctor.location}</td>
-                <td>{doctor.doctor.shiftStart}</td>
-                <td>{doctor.doctor.shiftEnd}</td>
+                <td>{`${parseInt(doctor.doctor.shiftStart)+":00"}`}</td>
+                <td>{`${parseInt(doctor.doctor.shiftEnd)+":00"}`}</td>
                 <td>
                   <Link
                     className="btn btn-primary mx-2"
@@ -85,6 +85,11 @@ export default function AdminPage() {
         <Link className="btn btn-primary" to="/addDoctor">
             Add Doctor
           </Link>
+
+          <h1></h1>
+        <Link className="btn btn-primary" to="/">
+          Back to login
+        </Link>
        
 
           

@@ -18,12 +18,12 @@ function App() {
           <Route exact path="/" element={<LoginPage />} />
           <Route exact path="/register" element={<RegisterPage />} />
           <Route exact path="/donor/:id" element={<DonorPage />} />
-          <Route exact path="/doctor" element={<DoctorPage />} />
+          <Route exact path="/doctor/:id" element={<DoctorPage />} />
           <Route exact path="/admin" element={<AdminPage />} />
           <Route exact path="/addDoctor" element={<AddDoctor />} />
           <Route exact path="/editDoctor/:id/:email/:password/:name/:locationId/:shiftStart/:shiftEnd" element={<EditDoctor />} />
           <Route exact path="/editDonor/:userId/:id/:password/:name/:address/:bloodType" element={<EditDonor />} />
-          <Route exact path="/addAppointment" element={<AddAppointment />} />
+          <Route exact path="/addAppointment/:locationId/:location/:id/:userId/:bloodType" element={<AddAppointment />} />
         </Routes>
       </Router>
     </div>
